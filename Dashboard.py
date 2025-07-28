@@ -26,184 +26,49 @@ except:
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
-    .block-container { 
-            padding-top: 0rem !important; 
-            padding-bottom: 0.5rem !important; 
-            padding-left: 0.8rem !important; 
-            padding-right: 0.8rem !important; 
-            margin-top: 0 !important; }
+    
+    /* === PENGATURAN UTAMA === */
+    .block-container { padding: 0.8rem !important; padding-top: 0 !important; margin-top: 0 !important; }
+    #MainMenu, header, footer { visibility: hidden; }
+    .stApp { background-color: #F3EFEF !important; }
+    body { font-family: 'Montserrat', sans-serif !important; }
 
-    #MainMenu, header, footer {visibility: hidden;}
-    .css-1lcbmhc {display: none;}
-            
-    .stApp { 
-            background-color: #F3EFEF !important; }
+    /* === HEADER & NAVIGASI === */
+    .header-navbar { margin-bottom: 2rem !important; background: #d9d9d9; padding: 1rem 1.2rem; border-radius: 16px; }
+    .header-title { font-weight: bold; font-size: 1rem; line-height: 1.12; color: #003153; letter-spacing: 0.3px; }
+    .header-title i { font-style: italic; }
+    .header-nav { display: flex; align-items: center; gap: 10px; }
+    .nav-link { color: #003153 !important; text-decoration: none !important; font-size: 0.7rem; padding-bottom: 3px; position: relative; }
+    .nav-link.dashboard { margin-right: 18px; }
+    .nav-link:hover::after, .nav-link.active::after { content: ''; display: block; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; border-radius: 2px; background: #E0A84B; }
+    .color-circle { display: inline-block; width: 20px; height: 20px; border-radius: 50%; }
+    .color-circle.one { background: #003153; margin-left: 18px; }
+    .color-circle.two { background: #E0A84B; }
+    .color-circle.three { background: #CA613A; }
 
-    .header-navbar { 
-            margin-top: 0 !important; 
-            margin-bottom:0 !important; 
-            background: #d9d9d9; 
-            padding: 1rem 1.2rem 1rem 1.2rem; 
-            border-radius: 16px; }
+    /* === KARTU KPI (st.metric) === */
+    div[data-testid="stMetric"] { background-color: #FFFFFF; border-bottom: 5px solid #E0A84B; border-radius: 10px; padding: 10px 13px; text-align: left; }
+    div[data-testid="stMetricLabel"] { font-size: 0.7rem; font-weight: 300; color: #545454; }
+    div[data-testid="stMetricValue"] { font-size: 1.2rem; font-weight: bold; color: #545454; }
+    div[data-testid="stMetricDelta"] { font-size: 0.8rem; font-weight: 500; }
 
-    .header-title { 
-            font-weight: bold; 
-            font-size: 1rem; 
-            line-height: 1.12; 
-            color: #003153; 
-            letter-spacing: 0.3px; }
+    /* === JUDUL-JUDUL BAGIAN === */
+    .kpi-title { color: #545454; font-size: 0.8rem; margin-bottom: 5px; margin-top: 10px; padding-left: 13px; }
+    .shap-title { color: #545454; font-size: 0.8rem; margin:-5px 0 5px 0; padding-left: 17px; display: flex; align-items: center; gap: 8px; }
+    .about-subheader { color: #003153; font-weight: bold; font-size: 1rem; margin-top: 1.5rem; margin-bottom: 5px; }
+    .about-subheader:first-of-type { margin-top: 0; }
+    .about-page-text { color: #545454; font-size: 0.9rem; line-height: 1.2; }
 
-    .header-title i { 
-            font-style: italic; }
-
-    .header-nav { 
-            display: flex; 
-            align-items: 
-            center; gap: 10px; }
-
-    .nav-link { 
-            color: #003153 !important; 
-            text-decoration: none !important; 
-            font-size: 0.7rem; 
-            padding-bottom: 3px; 
-            position: relative; 
-            transition: color 0.2s; }
-
-    .nav-link.dashboard { 
-            margin-right: 18px; }
-
-    .nav-link:hover::after, .nav-link.active::after { 
-            content: ''; 
-            display: block; 
-            position: absolute; 
-            left: 0; 
-            right: 0; 
-            bottom: 0; 
-            height: 3px; 
-            border-radius: 2px; 
-            background: #E0A84B; }
-
-    .color-circle { 
-            display: inline-block; 
-            width: 20px; 
-            height: 20px; 
-            border-radius: 50%; }
-
-    .color-circle.one { 
-            background: #003153; 
-            margin-left: 18px; }
-
-    .color-circle.two { 
-            background: #E0A84B; }
-
-    .color-circle.three { 
-            background: #CA613A; }
-
-    .header-title, .nav-link, .header-title i { 
-            font-family: 'Montserrat', Arial, sans-serif !important; 
-            letter-spacing: 0.2px; }
-
-    .kpi-title { 
-            color: #545454; 
-            font-size: 0.8rem; 
-            margin-bottom: -5px; 
-            margin-top: 10px; 
-            padding-left: 13px; }
-
-    .shap-title { 
-            color: #545454; 
-            font-size: 0.8rem; 
-            margin:-5px 0 5px 0; 
-            padding-left: 17px; 
-            display: flex; 
-            align-items: center; 
-            gap: 8px; }
-
-    .download-btn button { 
-            font-size: 0.7rem; 
-            padding: 0.13rem 0.8rem; 
-            margin:0 0 8px 0; 
-            border-radius: 10px; 
-            color: #545454; 
-            background: #FFFFFF; 
-            border: 0px; 
-            box-shadow: 0 2px 10px #00000008; 
-            cursor: pointer; 
-            transition: 0.2s all; }
-
-    .download-btn button:hover { 
-            background: #CA613A; 
-            color: #FFFFFF; 
-            border-color: #CA613A; 
-            box-shadow: 0 4px 18px #00336622; }
-
-    .about-subheader {
-            color: #003153 !important; 
-            font-weight: semi-bold !important;
-            font-size: 1rem !important; 
-            padding-top: 0 !important; 
-            padding-bottom: 0 !important; 
-            margin-top: 0 !important; 
-            margin-bottom: 5px !important;
-    }
-
-    /* biar sub-judul pertama tidak terlalu jauh jaraknya */
-    .about-subheader:first-of-type {
-            margin-top: 0rem;
-    }
-            
-    .about-page-text {
-            color: #545454 !important; 
-            font-size: 0.9rem !important; 
-            line-height: 1.2 !important; /* jarak antar baris */
-    }
-
-    /* atur jarak di dalam expander */
-    .expander-list ul > li {
-        margin-top: 0.7rem; /* Menambahkan jarak di atas setiap poin utama */
-    }
-
-    /* menghilangkan jarak atas untuk poin pertama agar tidak terlalu jauh dari judul expander */
-    .expander-list ul > li:first-child {
-        margin-top: 0;
-    }
-
-    div[data-testid="stHorizontalBlock"] > div[data-testid="stVerticalBlock"] {
+    /* === GRAFIK FITUR BARIS KEDUA (PENGATUR JARAK) === */
+    /* Menargetkan parent dari kolom-kolom di baris kedua secara spesifik */
+    .st-emotion-cache-1e5imcs > .st-emotion-cache-z5fcl4 {
         margin-top: -65px;
     }
-            
-    /* === STYLING UNTUK KARTU KPI (st.metric) === */
 
-    /* mengatur wadah/kartu st.metric */
-    div[data-testid="stMetric"] {
-        background-color: #FFFFFF;
-        border-bottom: 5px solid #E0A84B;
-        border-radius: 10px;
-        padding: 10px;
-        padding-left: 13px;
-        text-align: left;
-    }
-
-    /* mengatur tulisan label (Contoh: "Q1 2025") */
-    div[data-testid="stMetricLabel"] {
-        font-size: 0.7rem;
-        font-weight: 300;
-        color: #545454;
-    }
-
-    /* mengatur angka utama (Contoh: "Rp91.230 miliar") */
-    div[data-testid="stMetricValue"] {
-        font-size: 1.2rem;
-        font-weight: bold;
-        color: #545454;
-    }
-
-    /* mengatur teks perbandingan (Contoh: "+2.1% dari...") */
-    div[data-testid="stMetricDelta"] {
-        font-size: 0.8rem;
-        font-weight: 500;
-    }
-
+    /* === LAIN-LAIN === */
+    .download-btn button { font-size: 0.7rem; padding: 0.13rem 0.8rem; margin:0 0 8px 0; border-radius: 10px; color: #545454; background: #FFFFFF; border: 0px; box-shadow: 0 2px 10px #00000008; }
+    .expander-list ul > li { margin-top: 0.7rem; }
+    .expander-list ul > li:first-child { margin-top: 0; }
 </style>
 """, unsafe_allow_html=True)
 
