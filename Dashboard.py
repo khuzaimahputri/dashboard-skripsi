@@ -338,7 +338,7 @@ if st.session_state.page == 'dashboard':
                     showlegend=False,
                     margin=dict(l=0, r=0, t=0, b=0),
                     plot_bgcolor='#F3EFEF', paper_bgcolor='#F3EFEF',
-                    height=130,
+                    height=120,
                     width=100,
                 )
                 st.plotly_chart(fig_shap, use_container_width=True)
