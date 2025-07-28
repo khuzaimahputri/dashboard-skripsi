@@ -168,12 +168,9 @@ st.markdown("""
         margin-top: 0;
     }
 
-    div[data-testid="stVerticalBlock"] div[data-testid="stStyledFullScreenFrame"] { 
-            margin-top: -65px !important; }
-
-    .stMarkdown { 
-            margin-bottom: -15px !important; }
-
+    div[data-testid="stHorizontalBlock"] > div[data-testid="stVerticalBlock"] {
+        margin-top: -65px;
+    }
             
     /* === STYLING UNTUK KARTU KPI (st.metric) === */
 
