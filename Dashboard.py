@@ -168,7 +168,11 @@ st.markdown("""
         margin-top: 0;
     }
 
+    div[data-testid="stVerticalBlock"] div[data-testid="stStyledFullScreenFrame"] { 
+            margin-top: -65px !important; }
 
+    .stMarkdown { 
+            margin-bottom: -15px !important; }
 
             
     /* === STYLING UNTUK KARTU KPI (st.metric) === */
@@ -441,36 +445,36 @@ elif st.session_state.page == 'about':
         st.markdown("""
         <div class="expander-list">
 
-        * *Sumber Data:*
-            * Official Statistics yang diperoleh dari Badan Pusat Statistik (BPS) dan Bank Indonesia (BI)
+        * Sumber Data:
+            * *Official Statistics* yang diperoleh dari Badan Pusat Statistik (BPS) dan Bank Indonesia (BI)
             * Citra Satelit yang diperoleh dari SNPP-VIIRS, Aura/OMI, dan Terra/MODIS
-            * Google Trends Index yang diakses dari trends.google.com
+            * Google Trends Index yang diakses dari *trends.google.com*
         
-        * *Pendekatan Pemodelan:*
-            * Machine Learning dengan beberapa kandidat model, yaitu:
+        * Pendekatan Pemodelan:
+            * *Machine Learning* dengan beberapa kandidat model, yaitu:
                 * Ridge
                 * Lasso
                 * ElasticNet
                 * Random Forest
                 * Gradient Boosting
                 * XGBoost
-            * Model machine learning juga dibandingkan dengan pendekatan ARIMA/ARIMAX
-            * Feature Selection yang digunakan merupakan perbandingan dari korelasi Pearson dan SHAP-Select
+            * Model *machine learning* juga dibandingkan dengan pendekatan ARIMA/ARIMAX
+            * *Feature Selection* yang digunakan merupakan perbandingan dari korelasi Pearson dan SHAP-Select
 
         </div>
         """, unsafe_allow_html=True)
 
     # highlight model
     st.info("""
-    Model terbaik yang diperoleh adalah *Ridge Regression* 
-            dengan fitur akhir *Nighttime Lights, **Kurs USD periode sebelumnya, dan **nilai PDRB periode sebelumnya*.
+    Model terbaik yang diperoleh adalah Ridge Regression
+            dengan fitur akhir ***Nighttime Lights***, **Kurs USD periode sebelumnya**, dan **nilai PDRB periode sebelumnya**.
     """, icon="💡")
 
     with st.expander("Lihat Detail Cakupan Wilayah Nighttime Lights"):
         st.markdown("""
         <div class="expander-list">
 
-        * *Nighttime Lights difokuskan pada wilayah industri teratas di Jawa Timur dan mempertimbangkan ketersediaan kawasan industri besar. Berikut wilayah-wilayah tersebut:*
+        * *Nighttime Lights* difokuskan pada wilayah industri teratas di Jawa Timur dan mempertimbangkan ketersediaan kawasan industri besar. Berikut wilayah-wilayah tersebut:
             * Kota Surabaya
             * Sidoarjo
             * Kota Kediri
